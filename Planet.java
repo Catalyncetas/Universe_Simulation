@@ -104,10 +104,11 @@ public class Planet {
 		
 		double tempF = 0.0;
 		double distance = 0.0;
+		double EPS = 3E4;
 
 		distance = this.distanceTo(secondaryPlanet);
 		
-		tempF = -(G*this.mass*secondaryPlanet.mass)/(distance*distance);// multiply with -1 because distance can be negative		
+		tempF = -(G*this.mass*secondaryPlanet.mass)/(distance*distance+EPS*EPS);// multiply with -1 because distance can be negative		
 		
 		this.fx += tempF*(this.distanceXTo(secondaryPlanet)/distance);
 		this.fy += tempF*(this.distanceYTo(secondaryPlanet)/distance);
